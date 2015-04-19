@@ -1,0 +1,12 @@
+name: Everest
+type: theme
+description: 'Drupal 8 Theme'
+core: 8.x
+regions:
+  header: Header
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  sidebar_first: Left sidebar
+  sidebar_second: Right sidebar
+  footer: Footer
