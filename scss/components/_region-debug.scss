@@ -1,0 +1,19 @@
+.region--debug {
+  @include rgba-background-inline(rgba($crimson, 0.1));
+  position: relative;
+  min-height: 30px;
+  outline: 1px dashed $blue;
+}
+
+.region--debug:before {
+  @include border-radius(5px);
+  @include rgba-background-inline(rgba($crimson, 0.75));
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10px;
+  color: $white;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 3px 5px;
+  z-index: 100;
+}
