@@ -11,12 +11,9 @@ require 'sass-globbing'
 http_path = "/"
 css_dir = (environment == :production) ? "css" : "assets/dev/css"
 sass_dir = "assets/src/scss"
-images_dir = "images"
-images_path = "assets/src/images"
-generated_images_dir = (environment == :production) ? "images" : "assets/dev/images"
+images_dir = "assets/src/images"
 javascripts_dir = (environment == :production) ? "js" : "assets/dev/js"
-fonts_dir = "fonts"
-fonts_path = (environment == :production) ? "fonts" : "assets/dev/fonts"
+fonts_dir = (environment == :production) ? "fonts" : "assets/dev/fonts"
 
 # The output style for the compiled css.
 # One of: :nested, :expanded, :compact, or :compressed.
