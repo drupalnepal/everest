@@ -6,6 +6,16 @@
  */
 
 /**
+ * Auto-rebuild the theme registry during theme development.
+ */
+if (theme_get_setting('everest_rebuild_registry') && !defined('MAINTENANCE_MODE')) {
+  // Rebuild .info data.
+  system_rebuild_theme_data();
+  // Rebuild theme registry.
+  drupal_theme_rebuild();
+}
+
+/**
  * Implements hook_html_head_alter().
  */
 function everest_html_head_alter(&$head_elements) {

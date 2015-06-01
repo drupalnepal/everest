@@ -65,4 +65,10 @@ function everest_form_system_theme_settings_alter(&$form, &$form_state, $form_id
     '#description' => t('Show all regions for debugging purpose.'),
     '#default_value' => theme_get_setting('everest_region_debug'),
   );
+  $form['development']['everest_rebuild_registry'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Rebuild theme registry on every page.'),
+    '#description'   => t('During theme development, it can be very useful to continuously <a href="!link">rebuild the theme registry</a>.', array('!link' => 'https://drupal.org/node/173880#theme-registry')),
+    '#default_value' => theme_get_setting('everest_rebuild_registry'),
+  );
 }

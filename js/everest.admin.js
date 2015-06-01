@@ -16,7 +16,11 @@
           summary.push(Drupal.t('Regions visible for debugging'));
         }
 
-        return summary.join('<br><br>');
+        if ($context.find('input[name="everest_rebuild_registry"]').is(':checked')) {
+          summary.push(Drupal.t('Rebuild registry'));
+        }
+
+        return summary.join(', ');
       });
     }
   };
