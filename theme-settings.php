@@ -37,8 +37,14 @@ function everest_form_system_theme_settings_alter(&$form, &$form_state, $form_id
     '#title' => t('General settings'),
   );
   $form['theme_settings']['#group'] = 'general';
+  $form['theme_settings']['#collapsible'] = TRUE;
+  $form['theme_settings']['#collapsed'] = TRUE;
   $form['logo']['#group'] = 'general';
+  $form['logo']['#collapsible'] = TRUE;
+  $form['logo']['#collapsed'] = TRUE;
   $form['favicon']['#group'] = 'general';
+  $form['favicon']['#collapsible'] = TRUE;
+  $form['favicon']['#collapsed'] = TRUE;
 
   // Everest theme settings.
   $form['everest'] = array(
