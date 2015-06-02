@@ -1,2 +1,11 @@
-# We absolutely don't want to have the .sass-cache in git.
+# Ignore SASS cache.
 .sass-cache
+
+# Ignore operating system generated files.
+.DS_Store*
+.project
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
