@@ -3,7 +3,7 @@
 /**
  * @file
  * theme-settings.php
- * 
+ *
  * Theme setting callbacks for the "Everest" theme.
  */
 

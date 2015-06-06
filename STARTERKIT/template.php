@@ -20,4 +20,16 @@ function STARTERKIT_preprocess_page(&$variables) {
     $css_path = $theme_path . 'css/';
     $js_path = $theme_path . 'js/';
   }
+
+  // Add Modernizr.
+  if (theme_get_setting('STARTERKIT_libraries_modernizr') === 1) {
+    // If weight >= -1 or 'every_page = FALSE', it will show
+    // duplicate class 'js' inside the html tag.
+    drupal_add_js($js_path . 'libraries/modernizr.js', array(
+      'scope' => 'header',
+      'group' => JS_LIBRARY,
+      'weight' => -22,
+      'every_page' => TRUE,
+    ));
+  }
 }
