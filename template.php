@@ -16,6 +16,41 @@ if (theme_get_setting('everest_rebuild_registry') && !defined('MAINTENANCE_MODE'
 }
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function everest_preprocess_html(&$variables) {
+  if (theme_get_setting('everest_region_debug') == 1) {
+    $path = drupal_get_path('theme', 'everest');
+    drupal_add_css($path . '/css/everest.development.css', array(
+      'group' => CSS_THEME,
+      'weight' => -10,
+      'every_page' => TRUE,
+    ));
+  }
+}
+
+/**
+ * Implements hook_preproces_region().
+ */
+function everest_preprocess_region(&$variables) {
+  if (theme_get_setting('everest_region_debug') == 1 && $variables['debug'] = !empty($variables['elements']['#debug'])) {
+    $class = drupal_html_class('region--debug--' . $variables['region']);
+
+    drupal_add_css(".$class:before { content: \"{$variables['elements']['#name']}\"; }", array(
+      'type' => 'inline',
+      'group' => CSS_THEME,
+      'weight' => 1000,
+    ));
+
+    $variables['classes_array'][] = 'region--debug';
+    $variables['classes_array'][] = $class;
+
+    // Ensure that the content is not completely empty.
+    $variables['content'] = !empty($variables['content']) ? $variables['content'] : '&nbsp;';
+  }
+}
+
+/**
  * Implements hook_html_head_alter().
  */
 function everest_html_head_alter(&$head_elements) {
@@ -46,40 +81,5 @@ function everest_page_alter(&$page) {
         $page[$region]['#debug'] = TRUE;
       }
     }
-  }
-}
-
-/**
- * Implements hook_preproces_region().
- */
-function everest_preprocess_region(&$variables) {
-  if (theme_get_setting('everest_region_debug') == 1 && $variables['debug'] = !empty($variables['elements']['#debug'])) {
-    $class = drupal_html_class('region--debug--' . $variables['region']);
-
-    drupal_add_css(".$class:before { content: \"{$variables['elements']['#name']}\"; }", array(
-      'type' => 'inline',
-      'group' => CSS_THEME,
-      'weight' => 1000,
-    ));
-
-    $variables['classes_array'][] = 'region--debug';
-    $variables['classes_array'][] = $class;
-
-    // Ensure that the content is not completely empty.
-    $variables['content'] = !empty($variables['content']) ? $variables['content'] : '&nbsp;';
-  }
-}
-
-/**
- * Implements hook_preprocess_html().
- */
-function everest_preprocess_html(&$variables) {
-  if (theme_get_setting('everest_region_debug') == 1) {
-    $path = drupal_get_path('theme', 'everest');
-    drupal_add_css($path . '/css/everest.development.css', array(
-      'group' => CSS_THEME,
-      'weight' => -10,
-      'every_page' => TRUE,
-    ));
   }
 }
