@@ -59,9 +59,15 @@ function everest_form_system_theme_settings_alter(&$form, &$form_state, $form_id
     '#type' => 'fieldset',
     '#title' => t('Development'),
   );
+  $form['development']['everest_development_mode'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable development mode.'),
+    '#description' => t('Check here to enable the development mode. Used for development purpose only.'),
+    '#default_value' => theme_get_setting('everest_development_mode'),
+  );
   $form['development']['everest_region_debug'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Show regions'),
+    '#title' => t('Show regions.'),
     '#description' => t('Show all regions for debugging purpose.'),
     '#default_value' => theme_get_setting('everest_region_debug'),
   );
