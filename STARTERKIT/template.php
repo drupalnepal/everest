@@ -32,4 +32,11 @@ function STARTERKIT_preprocess_page(&$variables) {
       'every_page' => TRUE,
     ));
   }
+
+  // Add main stylesheet.
+  drupal_add_css($css_path . 'STARTERKIT_SANITIZED.styles.css', array(
+    'type' => 'file',
+    'group' => CSS_THEME,
+    'every_page' => TRUE,
+  ));
 }
