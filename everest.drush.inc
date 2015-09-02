@@ -65,6 +65,7 @@ function drush_everest_subtheme() {
   $search_replace = array(
     $subtheme_info['name'] => $name,
     $subtheme_info['description'] => $description,
+    'STARTERKIT_SANITIZED' => str_replace('_', '-', $machine_name),
     'STARTERKIT' => $machine_name,
   );
 
