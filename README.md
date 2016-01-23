@@ -1,3 +1,3 @@
-# Everest - Drupal 8 Theme
+# EVEREST - Drupal 8 Base Theme
 
 http://www.drupalnepal.com
